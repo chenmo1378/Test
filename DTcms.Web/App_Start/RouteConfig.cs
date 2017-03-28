@@ -13,6 +13,8 @@ namespace DTcms.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.Add(new DTcms.Web.Routing());//分类规则    url重写时使用
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
