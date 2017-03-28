@@ -12,7 +12,8 @@ namespace DTcms.Web.Filter
     public class AppFilter : ActionFilterAttribute
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
-        {        
+        {
+            base.OnActionExecuting(actionContext);
             if (!IsUserLogin())
             {                
                 string json="{\"status\": 0, \"msg\": \"错误提示：token不存在或已过期！\"}";
@@ -20,6 +21,7 @@ namespace DTcms.Web.Filter
                 return;
             }
         }
+        
 
         public bool IsUserLogin()
         {

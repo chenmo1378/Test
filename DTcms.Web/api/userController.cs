@@ -18,22 +18,22 @@ namespace DTcms.Web.api
         protected int userId ;
         protected Model.users userModel;
 
-        protected override void Initialize(System.Web.Http.Controllers.HttpControllerContext controllerContext)
-        {
-            base.Initialize(controllerContext);
+        //protected override void Initialize(System.Web.Http.Controllers.HttpControllerContext controllerContext)
+        //{
+        //    base.Initialize(controllerContext);
 
-            if (!IsUserLogin())
-            {
-                string json = "{\"status\": 0, \"msg\": \"错误提示：token不存在或已过期！\"}";
-                //controllerContext = new HttpResponseMessage { Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json") };
-                //controllerContext.Controller.
-                HttpContext.Current.Response.Write(json);
-                return;
-            }
-            token = DTRequest.GetFormString("token");
-            userId = Convert.ToInt32(Common.CacheHelper.Get2(token));
-            userModel = new BLL.users().GetModel(userId);
-        }
+        //    if (!IsUserLogin())
+        //    {
+        //        string json = "{\"status\": 0, \"msg\": \"错误提示：token不存在或已过期！\"}";
+        //        //controllerContext = new HttpResponseMessage { Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json") };
+        //        //controllerContext.Controller.
+        //        HttpContext.Current.Response.Write(json);
+        //        return;
+        //    }
+        //    token = DTRequest.GetFormString("token");
+        //    userId = Convert.ToInt32(Common.CacheHelper.Get2(token));
+        //    userModel = new BLL.users().GetModel(userId);
+        //}
         
         public bool IsUserLogin()
         {
